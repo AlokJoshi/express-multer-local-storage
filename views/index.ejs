@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><File Upoads></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    
+</head>
+<body>
+	<div class="container">
+		<h2>Upload the file</h2>
+		<%= typeof msg != 'undefined' ? msg : '' %>
+		<form action="/upload" method="POST" enctype="multipart/form-data">
+			<div class="file-field input-field">
+				<div class="btn grey">
+					<span>File</span>
+					<input name="avatar" type="file">
+				</div>
+				<div class="file-path-wrapper">
+					<input class="file-path validate" type="text">
+				</div>
+			</div>
+			<button type="submit" class="btn">Submit</button>
+		</form>		
+		<br />
+		<img class='responsive-img' src="<%= typeof image != 'undefined' ? image : '' %>">
+		<br />
+		<h2>Last 5 images loaded</h2>
+		<div>
+			<% imagesArray.forEach((item)=>{ %>
+				<img class='responsive-img circle' src='uploads/<%= item %>'>
+			<% }) %>
+		</div> 
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>    
+</body>
+</html>
